@@ -1,10 +1,16 @@
 public class RegularTicket extends Ticket {
 
-    private String serviceRequested; //food,water,snack
+    private String[] serviceRequested = new String[5]; //food,water,snack
 
+    public String[] getServiceRequested() {
+        return serviceRequested;
+    }
 
+    public void setServiceRequested(String[] serviceRequested) {
+        this.serviceRequested = serviceRequested;
+    }
 
-    /*
+/*
     check what special services are availed by passenger
      */
 

@@ -1,21 +1,14 @@
 abstract class Ticket extends Flight{
 
-    Flight flightChoosen;
-    Passenger passenger;
 
     private String ticketType;
     private String pnr;
-    private int price;
     private String ticketStatus;
     private boolean isCancelled;
 
 
     void cancellTicket(){}
 
-    public int calcPrice(int dist){
-        price = dist*2;
-        return price;
-    }
 
     public String getTicketType() {
         return ticketType;
@@ -25,13 +18,6 @@ abstract class Ticket extends Flight{
         this.ticketType = ticketType;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
 
     public String getTicketStatus() {
         return ticketStatus;
@@ -47,5 +33,13 @@ abstract class Ticket extends Flight{
 
     public void setCancelled(boolean cancelled) {
         isCancelled = cancelled;
+    }
+
+    public String getPnr() {
+        return pnr;
+    }
+
+    public void setPnr(int counter) {
+        pnr = new String("AIR101000"+counter);
     }
 }

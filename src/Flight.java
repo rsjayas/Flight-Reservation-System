@@ -6,12 +6,13 @@ public class Flight extends Airline{
     private int totalCapacity;
     private int currentCapacity;
     private int seatBooked;
+    private int price;
 
     private int seatNo;
     private String timeOfDeparture;
     private String timeOfArrival;
     private int durationOfjourney;
-    private int distance; //for my comfortness
+    private int distance; //for calculating fare
 
 
     //Constructor for flight
@@ -26,6 +27,7 @@ public class Flight extends Airline{
         this.currentCapacity = currentCapacity;
         this.timeOfArrival = timeOfArrival;
         this.timeOfDeparture = timeOfDeparture;
+        this.seatNo = 0;
     }
 
     public String toString()
@@ -34,79 +36,56 @@ public class Flight extends Airline{
     }
 
     // to calculate distance
-    public int calcDistance(int destination, int source) {
+    public int calcDistance(int source, int destination) {
         distance = (destination - source) * 800;
+        setDistance(distance);
         return distance;
     }
 
     // method to find duration of journey
     public int timeTravel(){
         durationOfjourney = (distance/200);
+        setDurationOfjourney(durationOfjourney);
         return durationOfjourney;
     }
 
-    public String getAirline() {
-        return airline;
+    public int calcPrice(){
+        price = distance*2;
+        return price;
     }
 
-    public void setAirline(String airline) {
-        this.airline = airline;
+
+    public String getAirline() {
+        return airline;
     }
 
     public String getFlightName() {
         return flightName;
     }
 
-    public void setFlightName(String flightName) {
-        this.flightName = flightName;
-    }
-
     public String getFlightNumber() {
         return flightNumber;
-    }
-
-    public void setFlightNumber(String flightNumber) {
-        this.flightNumber = flightNumber;
     }
 
     public int getTotalCapacity() {
         return totalCapacity;
     }
 
-    public void setTotalCapacity(int totalCapacity) {
-        this.totalCapacity = totalCapacity;
-    }
-
     public int getCurrentCapacity() {
         return currentCapacity;
-    }
-
-    public void setCurrentCapacity(int currentCapacity) {
-        this.currentCapacity = currentCapacity;
     }
 
     public int getSeatNo() {
         return seatNo;
     }
 
-    public void setSeatNo(int seatNo) {
-        this.seatNo = seatNo;
-    }
 
     public String getTimeOfDeparture() {
         return timeOfDeparture;
     }
 
-    public void setTimeOfDeparture(String timeOfDeparture) {
-        this.timeOfDeparture = timeOfDeparture;
-    }
-
     public String getTimeOfArrival() {
         return timeOfArrival;
-    }
-
-    public void setTimeOfArrival(String timeOfArrival) {
-        this.timeOfArrival = timeOfArrival;
     }
 
     //getter and setter for distance
@@ -134,5 +113,9 @@ public class Flight extends Airline{
 
     public void setSeatBooked(int seatBooked) {
         this.seatBooked = seatBooked;
+    }
+
+    public void setSeatNo(int seatNo) {
+        this.seatNo = seatNo;
     }
 }

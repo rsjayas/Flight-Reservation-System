@@ -1,12 +1,15 @@
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
 
         boolean exit = false;
-        int choice,st1,st2, ticketType, flightselected;
+        int choice,st1,st2, ticketType, flightselected, rs,selectLocation, index=0, abort, counter=0;
 
-        String name, email, phoneNumber, city, state, street;
+        String name, email, phoneNumber, city, state, street, hotelAddress;
+        String requestService[] = new String[5];
+        String touristLocation[] = new String[5];
 
         String stations[] = {"Ayodhya", "Mathura", "Mayapuri", "Kashi", "kanchipuram", "Avantika", "Puri", "Dwarka"};
 
@@ -19,6 +22,7 @@ public class Main {
         TouristTicket tt = new TouristTicket();
 
         Passenger.Contact passenger = new Passenger.Contact();
+        Passenger.Address address = new Passenger.Address();
 
         Flight flight = new Flight();
 
@@ -28,7 +32,7 @@ public class Main {
 
         //Loop to show various options available in Flight Booking System
 
-        do {
+        do{
 
             System.out.println();
             System.out.println("*************************WELCOME TO THE FLIGHT BOOKING SYSTEM**********************");
@@ -57,6 +61,7 @@ public class Main {
                     System.out.println(flight2);
                     System.out.println(flight3);
 
+                break;
                 }
 
                 /* Book Ticket ------------------------------------------------------------------------------------------------------- */
@@ -105,55 +110,216 @@ public class Main {
                         flightselected = sc.nextInt();
 
                         if(flightselected==1){
+                            exit = true;
                             System.out.println();
-                            System.out.println("flight Number: " + flight1.getFlightNumber());
-                            System.out.println("flight Name: " + flight1.getFlightName());
-                            System.out.println("flight Airline: " + flight1.getAirline());
+                            System.out.println("---------------------------Flight Details Are---------------------------");
                             System.out.println();
-                            System.out.println("flight Total capacity: " + flight1.getTotalCapacity());
-                            System.out.println("flight Seat Booked: " + flight1.getSeatBooked());
-                            System.out.println("flight Current seat Available: " + flight1.getCurrentCapacity());
-                            System.out.println();
-                            System.out.println("flight Time Of arrival: " + flight1.getTimeOfArrival());
-                            System.out.println("flight Time of Deaparture: " + flight1.getTimeOfDeparture());
-                            System.out.println("duration Of Journey: " + flight.getDurationOfjourney() + " Hours");
+                            System.out.println("flight Number: " + flight1.getFlightNumber() + ",          " + "flight Name: " + flight1.getFlightName() + ",          " + "Airline: " + flight1.getAirline());
+                            System.out.println("flight Total capacity: " + flight1.getTotalCapacity() + ",           " + "flight Seat Booked: " + flight1.getSeatBooked() + ",          " + "flight Current seat Available: " + flight1.getCurrentCapacity());
+                            System.out.println("flight Time Of arrival: " + flight1.getTimeOfArrival() + ",          " + "flight Time of Deaparture: " + flight1.getTimeOfDeparture());
 
                         }
                         else if(flightselected==2){
+                            exit = true;
                             System.out.println();
-                            System.out.println("flight Number: " + flight2.getFlightNumber());
-                            System.out.println("flight Name: " + flight2.getFlightName());
-                            System.out.println("flight Airline: " + flight2.getAirline());
+                            System.out.println("---------------------------Flight Details Are---------------------------");
                             System.out.println();
-                            System.out.println("flight Total capacity: " + flight2.getTotalCapacity());
-                            System.out.println("flight Seat Booked: " + flight2.getSeatBooked());
-                            System.out.println("flight Current seat Available: " + flight2.getCurrentCapacity());
-                            System.out.println();
-                            System.out.println("flight Time Of arrival: " + flight2.getTimeOfArrival());
-                            System.out.println("flight Time of Deaparture: " + flight2.getTimeOfDeparture());
-                            System.out.println("duration Of Journey: " + flight.getDurationOfjourney() + " Hours");
+                            System.out.println("flight Number: " + flight2.getFlightNumber() + ",          " + "flight Name: " + flight2.getFlightName() + ",          " + "Airline: " + flight2.getAirline());
+                            System.out.println("flight Total capacity: " + flight2.getTotalCapacity() + ",          " + "flight Seat Booked: " + flight2.getSeatBooked() + ",          " + "flight Current seat Available: " + flight2.getCurrentCapacity());
+                            System.out.println("flight Time Of arrival: " + flight2.getTimeOfArrival() + ",          " + "flight Time of Deaparture: " + flight2.getTimeOfDeparture());
+
                         }
                         else if(flightselected==3){
+                            exit = true;
                             System.out.println();
-                            System.out.println("flight Number: " + flight3.getFlightNumber());
-                            System.out.println("flight Name: " + flight3.getFlightName());
-                            System.out.println("flight Airline: " + flight3.getAirline());
+                            System.out.println("---------------------------Flight Details Are---------------------------");
                             System.out.println();
-                            System.out.println("flight Total capacity: " + flight3.getTotalCapacity());
-                            System.out.println("flight Seat Booked: " + flight3.getSeatBooked());
-                            System.out.println("flight Current seat Available: " + flight3.getCurrentCapacity());
-                            System.out.println();
-                            System.out.println("flight Time Of arrival: " + flight3.getTimeOfArrival());
-                            System.out.println("flight Time of Deaparture: " + flight3.getTimeOfDeparture());
-                            System.out.println("duration Of Journey: " + flight.getDurationOfjourney() + " Hours");
+                            System.out.println("flight Number: " + flight3.getFlightNumber() + ",          " + "flight Name: " + flight3.getFlightName() + ",           " + "Airline: " + flight3.getAirline());
+                            System.out.println("flight Total capacity: " + flight3.getTotalCapacity() + ",           " + "flight Seat Booked: " + flight3.getSeatBooked() + ",           " + "flight Current seat Available: " + flight3.getCurrentCapacity());
+                            System.out.println("flight Time Of arrival: " + flight3.getTimeOfArrival() + ",           " + "flight Time of Deaparture: " + flight3.getTimeOfDeparture());
+
+
                         }
                         else{
                             System.out.println();
                             System.out.println("Wrong Choice! select again");
                         }
-                    }while(flightselected!=1 || flightselected!=2 || flightselected!=3);
+                    }while(!exit);
+                    exit = false;
 
                     /* Select Ticket type-------------------------------------------------------------------- */
+
+                    System.out.println();
+                    System.out.println("select ticket type");
+                    System.out.println("1. Regural Ticket");
+                    System.out.println("2. Tourist Ticket");
+
+                    ticketType = sc.nextInt();
+
+                    if(ticketType==1) {
+                        rt.setTicketType("Regular Ticket");
+                    }
+                    else {
+                        tt.setTicketType("Tourist Ticket");
+                    }
+
+                    /* calculate fair */
+
+                    System.out.println();
+                    System.out.println("--------------------------Distance And fare-------------------------");
+                    System.out.println();
+                    System.out.println("Total distance to Travell: " + flight.calcDistance(st1, st2) + " Km");
+                    System.out.println("Total Time Taken: " + flight.timeTravel() + " Hours");
+                    System.out.println("Total Travel Fair: Rs." + flight.calcPrice());
+
+                    //  Register passenger ----------------------------------------------------------------
+
+                    System.out.println();
+                    System.out.println("Register yourself for Ticket Booking, kindly provide the below details");
+
+                    System.out.println();
+                    System.out.println("Enter your name");
+                    name  = sc.next();
+                    passenger.setName(name);
+
+                    System.out.println();
+                    System.out.println("Enter your email");
+                    email  = sc.next();
+                    passenger.setEmailId(email);
+
+                    System.out.println();
+                    System.out.println("Enter your phoneNumber");
+                    phoneNumber  = sc.next();
+                    passenger.setPhoneNumber(phoneNumber);
+
+                    System.out.println();
+                    System.out.println("Enter your street");
+                    street  = sc.next();
+                    address.setStreet(street);
+
+                    System.out.println();
+                    System.out.println("Enter your city");
+                    city  = sc.next();
+                    address.setCity(city);
+
+                    System.out.println();
+                    System.out.println("Enter your state");
+                    state  = sc.next();
+                    address.setState(state);
+
+                    /* show the details of Passenger and Ticket */
+
+                    System.out.println();
+                    System.out.println("----------------------------------------------------------------------------------------------------------------");
+                    System.out.println("                                             /* Review Your Details */                                          ");
+                    System.out.println("----------------------------------------------------------------------------------------------------------------");
+                    //Displaying Personel Details
+                    System.out.println();
+                    System.out.println("Personal Details:- ");
+                    System.out.println("Name: "+passenger.getName()+",   Email: "+passenger.getEmailId()+",   Phone Number: "+passenger.getPhoneNumber());
+
+                    //Displaying Address details
+                    System.out.println();
+                    System.out.println("Address Details:- ");
+                    System.out.println("Street: "+address.getStreet() +",   City: "+ address.getCity()+",   State: "+ address.getState());
+
+                    //Displaying Flight details
+                    System.out.println();
+                    System.out.println("Flight Details:- ");
+
+                    if(flightselected==1){
+                        System.out.println();
+                        System.out.println("flight Number: " + flight1.getFlightNumber() + ", " + "flight Name: " + flight1.getFlightName() + ", " + "Airline: " + flight1.getAirline());
+                        System.out.println("flight Time Of arrival: " + flight1.getTimeOfArrival() + ", " + "flight Time of Deaparture: " + flight1.getTimeOfDeparture());
+
+                    }
+                    if(flightselected==2){
+                        System.out.println();
+                        System.out.println("flight Number: " + flight2.getFlightNumber() + ", " + "flight Name: " + flight2.getFlightName() + ", " + "Airline: " + flight2.getAirline());
+                        System.out.println("flight Time Of arrival: " + flight2.getTimeOfArrival() + ", " + "flight Time of Deaparture: " + flight2.getTimeOfDeparture());
+
+                    }
+                    if(flightselected==3) {
+                        System.out.println();
+                        System.out.println("flight Number: " + flight3.getFlightNumber() + ", " + "flight Name: " + flight3.getFlightName() + ", " + "Airline: " + flight3.getAirline());
+                        System.out.println("flight Time Of arrival: " + flight3.getTimeOfArrival() + ", " + "flight Time of Deaparture: " + flight3.getTimeOfDeparture());
+                    }
+
+                    //Displaying Ticket details
+                    System.out.println();
+                    System.out.println("Ticket Details:- ");
+                    if(ticketType==1){
+                        System.out.println("Ticket Type: " + rt.getTicketType());
+                        System.out.println("Service Opted: ");
+                        System.out.println(rt.getServiceRequested());
+
+                    }
+                    if(ticketType==2){
+                        System.out.println("Ticket Type: " + tt.getTicketType());
+                        System.out.println("Service Opted: ");
+                        System.out.println(tt.getServiceRequested());
+                        System.out.println(tt.getTouristlocations());
+                        System.out.println(tt.getHotelAddress());
+                    }
+
+                    //Displaying Ticket details
+                    System.out.println();
+                    System.out.println("Fare Details:- ");
+                    System.out.println("Total distance to Travell: " + flight.calcDistance(st1, st2) + " Km,   Total Time Taken: " + flight.timeTravel() + " Hours,   Total Travel Fair: Rs." + flight.calcPrice());
+
+                    //Confirmation
+
+                    System.out.println();
+                    System.out.println("1. Confirm you details");
+                    System.out.println("2. Abort Operation");
+                    abort = sc.nextInt();
+
+                   do{
+                       if(abort ==1){
+                           exit = true;
+                           counter++;
+                           passenger.setId(counter);
+                           flight.setSeatNo(counter);
+                           flight.setSeatBooked(counter);
+
+                           System.out.println();
+                           System.out.println("Your Ticket is Booked! See detils:");
+                           System.out.println("------------------------------------");
+                           System.out.println("Passenger Id: PID000" + passenger.getId());
+                           System.out.println("Seat No: " + flight.getSeatNo());
+
+                           if(ticketType==1){
+                               rt.setTicketStatus("Comfirmed");
+                               rt.setPnr(counter);
+
+                               System.out.println("Ticket Status: " + rt.getTicketStatus());
+                               System.out.println("PNR No: " + rt.getPnr());
+                           }
+                           else{
+                               tt.setTicketStatus("Confirmed");
+                               tt.setPnr(counter);
+
+                               System.out.println("Ticket Status: " + tt.getTicketStatus());
+                               System.out.println("PNR No: " + tt.getPnr());
+                           }
+
+                       }
+                       else if(abort ==2){
+                           exit = true;
+                           break;
+                       }
+                       else{
+                           System.out.println();
+                           System.out.println("Wrong Choice! select again");
+                       }
+
+                   }while(!exit);
+                   exit = false;
+
+                break;
+                }
+
+                case 3: {
 
                     do{
                         System.out.println();
@@ -165,57 +331,121 @@ public class Main {
 
                         if(ticketType==1){
                             rt.setTicketType("Regular Ticket");
-                            System.out.println("you selected: " + rt.getTicketType());
+
+                            //Request a service.
+
+                            System.out.println("Do you want to add some services?");
+
+                            do{
+
+                                System.out.println();
+                                System.out.println("Add a services or Choose None?");
+                                System.out.println("1. Food");
+                                System.out.println("2. Water");
+                                System.out.println("3. Snacks");
+                                System.out.println("4. None");
+                                rs = sc.nextInt();
+
+                                if (rs == 1) {
+                                    requestService[index] = "Food";
+                                }
+                                if (rs == 2) {
+                                    requestService[index] = "Water";
+                                }
+                                if (rs == 3) {
+                                    requestService[index] = "Snacks";
+                                }
+                                if (rs == 4) {
+
+                                    exit = true;
+                                }
+                                index++;
+
+
+                            }while(!exit);
+                            exit = false;
+                            index=0;
+
+                            rt.setServiceRequested(requestService);
+
                         }
                         else if(ticketType==2){
                             tt.setTicketType("Tourist Ticket");
-                            System.out.println("you selected: " + tt.getTicketType());
+
+                            //Reguest services for tourist
+
+                            System.out.println("Select at most 5 tourist locations");
+                            System.out.println();
+
+                            do{
+
+                                System.out.println("select Station");
+                                for(int i=0; i<stations.length-1; i++){
+                                    System.out.println(i+1 + ". " + stations[i]);
+                                }
+                                selectLocation = sc.nextInt();
+                                touristLocation[index++] = stations[selectLocation];
+                                System.out.println("do you want to add more station?");
+                                System.out.println("1. Yes,     2. No");
+                                rs = sc.nextInt();
+                                if(rs == 2){
+                                    exit = true;
+                                }
+
+                            }while(!exit);
+                            exit = false;
+                            index=0;
+
+                            tt.setTouristlocations(touristLocation);
+
+                            System.out.println();
+                            System.out.println("Enter Your Hotel address");
+                            hotelAddress=sc.next();
+                            tt.setHotelAddress(hotelAddress);
+
+                            System.out.println();
+                            System.out.println("Do you want to add some services?");
+
+                            do{
+
+                                System.out.println();
+                                System.out.println("Add a services or Choose None?");
+                                System.out.println("1. Food");
+                                System.out.println("2. Water");
+                                System.out.println("3. Snacks");
+                                System.out.println("4. None");
+                                rs = sc.nextInt();
+
+                                if (rs == 1) {
+                                    requestService[index] = "Food";
+                                }
+                                if (rs == 2) {
+                                    requestService[index] = "Water";
+                                }
+                                if (rs == 3) {
+                                    requestService[index] = "Snacks";
+                                }
+                                if (rs == 4) {
+
+                                    exit = true;
+                                }
+                                index++;
+
+                            }while(!exit);
+
+                            index=0;
+
+                            tt.setServiceRequested(requestService);
+
                         }
+
                         else{
+                            exit = false;
                             System.out.println();
                             System.out.println("Wrong Choice! select again");
                         }
-                    }while(ticketType!=1 || ticketType!=2);
-
-                    //  Register paassenger ----------------------------------------------------------------
-
-                    System.out.println();
-                    System.out.println("Register your self for Ticket Booking, kindly provide the below details");
-
-                    System.out.println();
-                    System.out.println("Enter your name");
-                    name  = sc.next();
-                    passenger.setName(name);
-
-                    System.out.println();
-                    System.out.println("Enter your email");
-                    email  = sc.next();
-                    passenger.setName(email);
-
-                    System.out.println();
-                    System.out.println("Enter your phoneNumber");
-                    phoneNumber  = sc.next();
-                    passenger.setName(phoneNumber);
-
-                    System.out.println();
-                    System.out.println("Enter your street");
-                    street  = sc.next();
-                    passenger.setName(street);
-
-                    System.out.println();
-                    System.out.println("Enter your city");
-                    city  = sc.next();
-                    passenger.setName(city);
-
-                    System.out.println();
-                    System.out.println("Enter your state");
-                    state  = sc.next();
-                    passenger.setName(state);
-
-                    /* show the details of Passenger and Ticket */
-
-
-
+                    }while(!exit);
+                    exit = false;
 
                 }
 
@@ -233,7 +463,7 @@ public class Main {
             }
 
 
-        } while (!exit);
+        }while(!exit);
 
     }
 

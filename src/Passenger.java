@@ -1,23 +1,19 @@
 public class Passenger extends  Ticket {
 
-   //todo: get details and set details
-    //todo: update user details
-
-    Contact contact;
-    Address address;
-
-    private static int idCounter;
-    public int getPassengerCount(int idCounter){
-        return ++idCounter;
-
-    }
-
 
     static class Contact{
         private int id;
         private String name;
         private String phoneNumber;
         private String emailId;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public String getName() {
             return name;
@@ -44,7 +40,7 @@ public class Passenger extends  Ticket {
         }
     }
 
-    private static class Address{
+    static class Address{
         private String street;
         private String city;
         private String state;
