@@ -4,7 +4,6 @@ abstract class Ticket extends Flight{
     private String ticketType;
     private String pnr;
     private String ticketStatus;
-    private boolean isCancelled;
 
 
     void cancellTicket(){}
@@ -27,14 +26,6 @@ abstract class Ticket extends Flight{
         this.ticketStatus = ticketStatus;
     }
 
-    public boolean isCancelled() {
-        return isCancelled;
-    }
-
-    public void setCancelled(boolean cancelled) {
-        isCancelled = cancelled;
-    }
-
     public String getPnr() {
         return pnr;
     }
@@ -42,4 +33,5 @@ abstract class Ticket extends Flight{
     public void setPnr(int counter) {
         pnr = new String("AIR101000"+counter);
     }
+
 }

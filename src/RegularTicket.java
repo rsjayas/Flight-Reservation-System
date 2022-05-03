@@ -1,6 +1,6 @@
 public class RegularTicket extends Ticket {
 
-    private String[] serviceRequested = new String[5]; //food,water,snack
+    private String serviceRequested[] = new String[5]; //food,water,snack
 
     public String[] getServiceRequested() {
         return serviceRequested;

@@ -71,9 +71,15 @@ public class Flight extends Airline{
         return totalCapacity;
     }
 
+    public void setCurrentCapacity(int counter) {
+        currentCapacity=currentCapacity-counter;
+    }
+
     public int getCurrentCapacity() {
         return currentCapacity;
     }
+
+
 
     public int getSeatNo() {
         return seatNo;
@@ -107,13 +113,14 @@ public class Flight extends Airline{
     }
 
     //getter and setter for seetbooked
-    public int getSeatBooked() {
-        return seatBooked;
-    }
 
     public void setSeatBooked(int seatBooked) {
         this.seatBooked = seatBooked;
     }
+    public int getSeatBooked() {
+        return seatBooked;
+    }
+
 
     public void setSeatNo(int seatNo) {
         this.seatNo = seatNo;
