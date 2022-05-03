@@ -1,6 +1,7 @@
-public class RegularTicket {
+public class RegularTicket extends Ticket {
 
     private String serviceRequested; //food,water,snack
+
 
 
     /*

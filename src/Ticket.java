@@ -1,28 +1,51 @@
-public class Ticket {
+abstract class Ticket extends Flight{
 
-    Flight flight;
-    Ticket(Flight flight){}
+    Flight flightChoosen;
+    Passenger passenger;
 
     private String ticketType;
     private String pnr;
-
-    private String flightName;
-    private String dateAndTimeOfDeparture;
-    private String getDateAndTimeOfArrival;
-    Passenger passenger;
-    private int seatNo;
     private int price;
     private String ticketStatus;
     private boolean isCancelled;
-    private int durationOfjourney;
-    private int distance; //for my comfortness
+
 
     void cancellTicket(){}
 
+    public int calcPrice(int dist){
+        price = dist*2;
+        return price;
+    }
 
+    public String getTicketType() {
+        return ticketType;
+    }
 
+    public void setTicketType(String ticketType) {
+        this.ticketType = ticketType;
+    }
 
+    public int getPrice() {
+        return price;
+    }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
+    public String getTicketStatus() {
+        return ticketStatus;
+    }
 
+    public void setTicketStatus(String ticketStatus) {
+        this.ticketStatus = ticketStatus;
+    }
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
+    }
 }
