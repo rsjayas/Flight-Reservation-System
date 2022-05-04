@@ -1,6 +1,6 @@
 public class TouristTicket extends Ticket{
 
-    private String[] serviceRequested = new String[5]; //food,water,snack
+    private String[] serviceRequested = new String[3]; //food,water,snack
     private String hotelAddress;
     private String[] touristlocations =new String[5]; // maximum five tourist location
 

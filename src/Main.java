@@ -7,7 +7,7 @@ public class Main {
         boolean exit = false;
         int choice,st1,st2, ticketType =0, flightselected, rs,selectLocation, index=0, abort, counter=0;
 
-        String name, email, phoneNumber, city, state, street, hotelAddress;
+        String name1, email, phoneNumber, city, state, street, hotelAddress1;
         String requestService[] = new String[5];
         String touristLocation[] = new String[5];
 
@@ -207,32 +207,32 @@ public class Main {
 
                     System.out.println();
                     System.out.println("Enter your name");
-                    name  = sc.next();
-                    passenger.setName(name);
+                    name1  = sc.nextLine();
+                    passenger.setName(name1);
 
                     System.out.println();
                     System.out.println("Enter your email");
-                    email  = sc.next();
+                    email  = sc.nextLine();
                     passenger.setEmailId(email);
 
                     System.out.println();
                     System.out.println("Enter your phoneNumber");
-                    phoneNumber  = sc.next();
+                    phoneNumber  = sc.nextLine();
                     passenger.setPhoneNumber(phoneNumber);
 
                     System.out.println();
                     System.out.println("Enter your street");
-                    street  = sc.next();
+                    street  = sc.nextLine();
                     address.setStreet(street);
 
                     System.out.println();
                     System.out.println("Enter your city");
-                    city  = sc.next();
+                    city  = sc.nextLine();
                     address.setCity(city);
 
                     System.out.println();
                     System.out.println("Enter your state");
-                    state  = sc.next();
+                    state  = sc.nextLine();
                     address.setState(state);
 
                     /* show the details of Passenger and Ticket */
@@ -389,7 +389,7 @@ public class Main {
 
                             //Request a service.
 
-                            System.out.println("Do you want to add some services?");
+                            System.out.println("Do you want to add any service?(maxium 3 serivices you can add)");
 
                             do{
 
@@ -418,10 +418,15 @@ public class Main {
 
 
                             }while(!exit);
-                            exit = false;
                             index=0;
 
                             rt.setServiceRequested(requestService);
+                            System.out.println();
+                            System.out.println("Following services added for your Ticket");
+                            for (int i=0; i<rt.getServiceRequested().length;i++){
+                                System.out.println(rt.getServiceRequested()[i]);
+                            }
+
 
                         }
                         else if(ticketType==2){
@@ -440,9 +445,11 @@ public class Main {
                                 }
                                 selectLocation = sc.nextInt();
                                 touristLocation[index++] = stations[selectLocation];
+
                                 System.out.println("do you want to add more station?");
                                 System.out.println("1. Yes,     2. No");
                                 rs = sc.nextInt();
+
                                 if(rs == 2){
                                     exit = true;
                                 }
@@ -455,11 +462,11 @@ public class Main {
 
                             System.out.println();
                             System.out.println("Enter Your Hotel address");
-                            hotelAddress=sc.next();
-                            tt.setHotelAddress(hotelAddress);
+                            hotelAddress1 = sc.nextLine();
+                            tt.setHotelAddress(hotelAddress1);
 
                             System.out.println();
-                            System.out.println("Do you want to add some services?");
+                            System.out.println("Do you want to add any services? (maxium 3 serivices you can add)");
 
                             do{
 
@@ -487,10 +494,23 @@ public class Main {
                                 index++;
 
                             }while(!exit);
-
                             index=0;
 
                             tt.setServiceRequested(requestService);
+                            System.out.println("Following services added for your Ticket");
+                            System.out.println();
+                            System.out.println("Hotel address: " + tt.getHotelAddress());
+                            System.out.println();
+                            System.out.println("Tourist Location: ");
+                            for (int i=0; i<tt.getTouristlocations().length;i++){
+                                System.out.println(tt.getTouristlocations()[i]);
+                            }
+                            System.out.println();
+                            System.out.println("Following services added for your Ticket");
+                            for (int i=0; i<tt.getServiceRequested().length;i++){
+                                System.out.println(tt.getServiceRequested()[i]);
+                            }
+
 
                         }
 
